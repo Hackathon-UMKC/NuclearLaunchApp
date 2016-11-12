@@ -1,32 +1,53 @@
-angular.module('app.controllers', [])
+var MobileApp=angular.module('app.controllers', ["firebase"])
   
-.controller('launchKeyGeneratorCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+MobileApp.controller('launchKeyGeneratorCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
 function ($scope, $stateParams) {
 
 
 }])
    
-.controller('launchCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+MobileApp.controller('launchCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
 function ($scope, $stateParams) {
 
 
 }])
    
-.controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
-
-
+MobileApp.controller('loginCtrl', ['$scope','$state','$stateParams','$firebaseAuth', // The following is the constructor function for this page's controller. See 
+function ($scope,$state,$stateParams,$firebaseAuth) {
+    // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD_Yz44zpyoDDOdFLet5fgOjbIphxvlUq0",
+        authDomain: "hackathonumkc.firebaseapp.com",
+        databaseURL: "https://hackathonumkc.firebaseio.com",
+        storageBucket: "hackathonumkc.appspot.com",
+        messagingSenderId: "67063658991"
+      };
+    firebase.initializeApp(config);
+    var fbAuth = $firebaseAuth();
+    
+    //Login into application using Firebase Authencation
+    $scope.login=function(username,password){
+        console.log("Username:"+username+" Password:"+password);
+        fbAuth.$signInWithEmailAndPassword(username,password).then(function(authData) {
+            $state.go("menu.launchKeyGenerator");
+        }).catch(function(error) {
+            alert("UnAuthencated User");
+        });
+    }
+    
+    /*$scope.register = function(username, password) {
+        fbAuth.$createUserWithEmailAndPassword(username,password).then(function(userData) {
+            return fbAuth.$signInWithEmailAndPassword(username,
+                password);
+        }).then(function(authData) {
+            alert("Successful")
+        }).catch(function(error) {
+            console.error("ERROR: " + error);
+        });
+    }*/
 }])
    
-.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+MobileApp.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
 function ($scope, $stateParams) {
 
 
