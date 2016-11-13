@@ -3,15 +3,15 @@
     <div class="spacer" style="width: 300px; height: 120px;"></div>
     <form id="login-form2" class="list">
       <label class="item item-input" id="login-input1">
-        <input type="text" placeholder="Username">
+        <input ng-model="username" type="text" placeholder="Username">
       </label>
     </form>
     <div class="spacer" style="width: 300px; height: 32px;"></div>
     <form id="login-form3" class="list">
       <label class="item item-input" id="login-input2">
-        <input type="text" placeholder="Password">
+        <input ng-model="password" type="password" placeholder="Password">
       </label>
     </form>
-    <a ui-sref="secureLaunch" id="login-button1" class="button button-positive  button-block">Secure Login</a>
+    <a id="login-button1" class="button button-positive  button-block" ng-click="login(username,password)">Secure Login</a>
   </ion-content>
 </ion-view>
