@@ -5,7 +5,7 @@ var shareUserName=null;
 MobileApp.controller('launchKeyGeneratorCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
 function ($scope, $stateParams) {
     console.log("Username:"+shareUserName);
-    $scope.usernameData=sd;
+    $scope.usernameData=shareUserName;
 }])
    
 MobileApp.controller('launchCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
