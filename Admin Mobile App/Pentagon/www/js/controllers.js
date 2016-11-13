@@ -1,9 +1,11 @@
 var MobileApp=angular.module('app.controllers', ["firebase"])
+
+var shareUserName=null;
   
 MobileApp.controller('launchKeyGeneratorCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
 function ($scope, $stateParams) {
-
-
+    console.log("Username:"+shareUserName);
+    $scope.usernameData=sd;
 }])
    
 MobileApp.controller('launchCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See 
@@ -26,14 +28,16 @@ function ($scope,$state,$stateParams,$firebaseAuth) {
     var fbAuth = $firebaseAuth();
     
     //Login into application using Firebase Authencation
-    $scope.login=function(username,password){
-        console.log("Username:"+username+" Password:"+password);
+    $scope.login=function(username,password){       
+        shareUserName=username;
+        console.log("Username:"+shareUserName+" Password:"+password);
         fbAuth.$signInWithEmailAndPassword(username,password).then(function(authData) {
             $state.go("menu.launchKeyGenerator");
-        }).catch(function(error) {
+		}).catch(function(error) {
             alert("UnAuthencated User");
         });
     }
+    
     
     /*$scope.register = function(username, password) {
         fbAuth.$createUserWithEmailAndPassword(username,password).then(function(userData) {
@@ -52,4 +56,3 @@ function ($scope, $stateParams) {
 
 
 }])
- 
