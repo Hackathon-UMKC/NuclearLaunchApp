@@ -232,7 +232,7 @@ function ($scope,$state,$stateParams,$firebaseAuth) {
     
     //Login into application using Firebase Authencation
     $scope.login=function(username,password){       
-        shareUserName=username;
+        shareUserName=username.substring(0, 8);
         /*console.log("Username:"+shareUserName+" Password:"+password);*/
         fbAuth.$signInWithEmailAndPassword(username,password).then(function(authData) {
             $state.go("menu.launchKeyGenerator");
