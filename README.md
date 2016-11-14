@@ -1,4 +1,4 @@
-# Nuclear Football
+# Nuclear Football Mobile Application
 
 Secret Sharing among ‘n’ untrusted users and reconstructing using ‘m’ users.
             1.Use Case Description
