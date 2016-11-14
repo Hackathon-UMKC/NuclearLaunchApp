@@ -27,5 +27,6 @@ We are using the Shamir’s scheme to develop this application.
 We are using the polynomial generator function to randomly generate the keys for the ‘n’ users from a random polynomial of degree       threshold-1.
  
 2.2 Key Reconstruction
+
 We are using the Lagrange Interpolating algorithm to reconstruct the secret by using the threshold value (number of accepted users).
  
