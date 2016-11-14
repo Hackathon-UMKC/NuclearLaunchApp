@@ -1,4 +1,4 @@
-# SecureLaunch
+# Nuclear Football
 
 Secret Sharing among ‘n’ untrusted users and reconstructing using ‘m’ users.
             1.Use Case Description
