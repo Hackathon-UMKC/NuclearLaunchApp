@@ -8,7 +8,7 @@ Secret Sharing among ‘n’ untrusted users and reconstructing using ‘m’ us
             2.1 Key Generation
             2.2 Key Reconstruction
 
-1. Use Case Description:
+# Use Case Description:
 
 1.1 Objective
 
@@ -18,7 +18,7 @@ Secret Sharing among ‘n’ untrusted users and reconstructing using ‘m’ us
 
   This app allows the admin to create the individual keys for all the ‘n’ trusted users, and the users will be provided with the choice of accepting or rejecting the launch of nuclear codes, when the users select their choices, admin will be reconstructing the key. The generated key should match with his key when the number of accepted users will be greater than the threshold. Nuclear will be launched if the key matches with the master key.
   
- 2. Shamir’s Algorithm:
+# Shamir’s Algorithm:
 
 We are using the Shamir’s scheme to develop this application.
   
